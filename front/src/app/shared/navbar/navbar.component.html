@@ -1,11 +1,60 @@
-<header class="flex justify-between items-center p-6 shadow-lg bg-white/80 backdrop-blur-md">
-  <h1 class="text-3xl font-bold text-[#A6563F]">TissU</h1>
-  <img src="assets/images/logo2coudre.png" alt="logo" class="h-20 w-30">
-  <nav class="space-x-6">
-    <a routerLink="/" class="text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Accueil</a>
-    <a routerLink="/" class="text-[#6B4226] font-semibold hover:text-[#A6563F] transition">A propos</a>
-    <a routerLink="/" class="text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Contact</a>
-    <a routerLink="/tissus" class="text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Tissus</a>
-    <a routerLink="/contact" class="text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Contact</a>
+<header class="bg-[#A6563F] backdrop-blur-md shadow-lg px-6 py-4 flex items-center justify-between">
+  <div class="flex items-center space-x-4">
+    <img src="assets/images/logo4test.png" alt="logo" class="h-16 w-auto">
+    <h1 class="text-3xl font-bold text-[#A6563F]">TissU</h1>
+  </div>
+
+  <div class="relative hidden md:block w-80">
+    <input 
+      type="text" 
+      placeholder="Rechercher un tissu" 
+      class="w-full py-2 px-4 rounded-full border border-red-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-[#A6563F] pr-12 transition"
+    >
+    <button 
+      class="absolute right-0 top-0 h-full px-4 rounded-r-full bg-green-600 text-white hover:bg-[#6B4226] transition"
+    >
+      🔍
+    </button>
+  </div>
+
+  <nav class="hidden md:flex space-x-6 ml-8">
+    <a routerLink="/" class="text-white/90 font-semibold hover:text-white/60 transition">Accueil</a>
+    <a routerLink="/apropos" class="text-white/90 font-semibold hover:text-white/60 transition">A propos</a>
+    <a routerLink="/produits" class="text-white/90  font-semibold hover:text-white/60  transition">Produits</a>
+    <a routerLink="/tissus" class="text-white/90  font-semibold hover:text-white/60 transition">Tissus</a>
+    <a routerLink="/contact" class="text-white/90  font-semibold hover:text-white/60  transition">Contact</a>
   </nav>
+
+<!-- Menu mobile (hidden par défaut) -->
+  <div class="md:hidden">
+    <button id="menu-btn" class="text-[#6B4226] focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
 </header>
+<div id="mobile-menu" class="hidden bg-pink-100 shadow-lg px-6 py-4 md:hidden">
+  <a routerLink="/" class="block py-2 text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Accueil</a>
+  <a routerLink="/apropos" class="block py-2 text-[#6B4226] font-semibold hover:text-[#A6563F] transition">A propos</a>
+  <a routerLink="/produits" class="block py-2 text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Produits</a>
+  <a routerLink="/tissus" class="block py-2 text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Tissus</a>
+  <a routerLink="/contact" class="block py-2 text-[#6B4226] font-semibold hover:text-[#A6563F] transition">Contact</a>
+  <div class="mt-2 relative w-full">
+    <input 
+      type="text" 
+      placeholder="Rechercher un tissu" 
+      class="w-full py-2 px-4 rounded-full border border-red-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-[#A6563F] pr-12 transition"
+    >
+    <button class="absolute right-0 top-0 h-full px-4 rounded-r-full bg-[#A6563F] text-white hover:bg-[#6B4226] transition">🔍</button>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>

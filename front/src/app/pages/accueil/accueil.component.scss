@@ -1,0 +1,32 @@
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-bottom: 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: slide 30s linear infinite;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #A6563F;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+span {
+  margin-right: 40px;
+}

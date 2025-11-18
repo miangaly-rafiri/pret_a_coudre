@@ -1,0 +1,28 @@
+<div class="filtres">
+  <h2>Filtres</h2>
+
+  <label>
+    Catégorie :
+    <select [(ngModel)]="filtreCategorie">
+      <option value="">Toutes</option>
+      <option value="coton">Coton</option>
+      <option value="lin">Lin</option>
+      <option value="soie">Soie</option>
+    </select>
+  </label>
+
+  <label>
+    Prix max :
+    <input type="number" [(ngModel)]="filtrePrixMax">
+  </label>
+</div>
+
+<hr>
+
+<div class="produits">
+  <h2>Produits</h2>
+
+  <div *ngFor="let p of produitsFiltres">
+    {{ p.nom }} — {{ p.prix }} €
+  </div>
+</div>
