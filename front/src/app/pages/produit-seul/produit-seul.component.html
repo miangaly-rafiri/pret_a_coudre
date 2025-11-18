@@ -1,12 +1,10 @@
 <div  class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
 <section class="produit-container" *ngIf="produit">
 
-  <!-- IMAGE À GAUCHE -->
   <div class="image-container">
     <img [src]="produit.image" [alt]="produit.nom">
   </div>
 
-  <!-- INFO À DROITE -->
   <div class="info-container">
 
     <h1>{{ produit.nom }}</h1>

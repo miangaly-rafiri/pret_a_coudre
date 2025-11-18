@@ -1,18 +1,19 @@
 .produit-container {
-  max-width: 1200px;        // tu peux augmenter un peu la largeur globale
+  max-width: 1200px;   
   margin: 40px auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: 2fr 1fr; // image plus large que les infos
+  grid-template-columns: 2fr 1fr;
   gap: 40px;
-  align-items: start;        // aligne en haut
+  align-items: start; 
+  margin-top: 200px;       
 }
 
 .image-container img {
-  width: 100%;       // occupe toute la largeur de la colonne
-  height: auto;      // garde le ratio
-  max-height: 600px; // limite la hauteur pour éviter que ça déborde
-  object-fit: cover; // l'image remplit bien le conteneur si besoin
+  width: 100%;       
+  height: auto;     
+  max-height: 600px; 
+  object-fit: cover; 
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   border-radius: 12px;
 }

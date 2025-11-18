@@ -33,13 +33,11 @@
   </div>
 </div>
 
-<!-- LISTE PRODUITS -->
 <div class="produits">
   <h2 class="titre">Produits</h2>
 
   <div class="grid">
 
-    <!-- BLOC PRODUIT -->
     <div *ngFor="let p of produitsFiltres"
          class="card"
          (click)="ouvrirProduit(p.id)">
