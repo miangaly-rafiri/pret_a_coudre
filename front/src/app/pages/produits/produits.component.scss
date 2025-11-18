@@ -4,8 +4,7 @@
   margin: 20px auto;
   border-radius: 14px;
   width: 90%;
-  background: linear-gradient( 135deg,#FAF3E7, #F3E5D0,#E8D5C4);     
-  margin-top: 150px;       
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .titre {
@@ -58,7 +57,7 @@
     background: #FFF;
     border-radius: 14px;
     padding: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     transition: 0.2s;
     display: flex;
     flex-direction: column;
@@ -85,9 +84,11 @@
       }
 
       .prix {
+        display: block;
         font-size: 1.2rem;
         color: #A6563F;
         font-weight: bold;
+        margin-top: 5px;
       }
 
       .cat {
@@ -96,4 +97,10 @@
       }
     }
   }
+}
+
+.container {
+  padding-top: 10rem;
+  max-width: 100%;
+  padding-bottom: 5rem;
 }
