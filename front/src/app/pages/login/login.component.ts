@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,47 @@ export class LoginComponent {
   password = '';
   remember = false;
 
-  onSubmit() {
-    // placeholder: remplacer par appel réel à un service d'authentification
-    console.log('Tentative de connexion', { email: this.email, password: this.password, remember: this.remember });
-  }
+  emailtest = 'test@gmail.com';
+  passwordtest = 'Test1234';
 
+  err = '';
+  success = '';
+
+  constructor(private router: Router, public auth: AuthService) { }
+
+  onSubmit() {
+    const clearMessages = () => {
+    setTimeout(() => {
+      this.err = '';
+      this.success = '';
+    }, 1500);
+  };
+
+    if (!this.email || !this.password) {
+      this.err = 'Veuillez remplir tous les champs.';
+      clearMessages();
+      return;
+    }
+
+    if (this.email !== this.emailtest || this.password !== this.passwordtest) {
+      this.err = 'Email ou mot de passe incorrect.';
+      clearMessages();
+      return;
+    }
+
+    if (this.email === this.emailtest && this.password === this.passwordtest) {
+      this.success = "Connexion réussie ! Redirection en cours...";
+      this.auth.login();
+      clearMessages();
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 2000);
+    }
+
+    console.log('Tentative de connexion', {
+      email: this.email,
+      password: this.password,
+      remember: this.remember
+    });
+  }
 }
