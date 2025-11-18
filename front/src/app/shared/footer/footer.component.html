@@ -1,4 +1,4 @@
-<!-- <footer class="bg-[#A6563F] text-white mt-12">
+<footer class="bg-[#A6563F] text-white">
   <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
 
     <div class="space-y-4">
@@ -37,36 +37,5 @@
   </div>
   <div class="border-t border-[#FDF6F0]/20 mt-12 py-6 text-center text-[#FDF6F0]/70 mt-20">
     &copy; 2025 Prêt-à-Coudre. Tous droits réservés.
-  </div>
-</footer> -->
-
-
-<footer class="bg-[#A6563F] text-white mt-12 transition-footer" [ngClass]="{'fixed-footer': showFooter}">
-  <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-    <!-- contenu du footer -->
-    <div class="space-y-4">
-      <h2 class="text-3xl font-bold text-[#FDF6F0]">tissU</h2>
-      <p class="text-[#FDF6F0]/80">Des tissus de qualité pour toutes vos créations.</p>
-    </div>
-    <div class="space-y-2">
-      <h3 class="text-xl font-semibold mb-4 text-[#FDF6F0]">Liens rapides</h3>
-      <ul class="space-y-2 text-[#FDF6F0]/90">
-        <li><a routerLink="/" class="hover:text-[#E8B89C] transition">Accueil</a></li>
-        <li><a routerLink="/tissus" class="hover:text-[#E8B89C] transition">Tissus</a></li>
-        <li><a routerLink="/contact" class="hover:text-[#E8B89C] transition">Contact</a></li>
-        <li><a routerLink="/about" class="hover:text-[#E8B89C] transition">À propos</a></li>
-      </ul>
-    </div>
-    <div class="space-y-4">
-      <h3 class="text-xl font-semibold text-[#FDF6F0]">Newsletter</h3>
-      <form class="flex flex-col sm:flex-row gap-4">
-        <input type="email" placeholder="Votre email" 
-               class="p-3 rounded-lg border border-[#E8B89C] text-[#333] flex-1 focus:outline-none focus:ring-2 focus:ring-[#E8B89C]">
-        <button type="submit" 
-                class="bg-[#E8B89C] hover:bg-[#FDF6F0] text-[#6B4226] font-bold py-3 px-6 rounded-lg shadow-lg transition">
-          S'inscrire
-        </button>
-      </form>
-    </div>
   </div>
 </footer>
