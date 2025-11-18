@@ -40,4 +40,7 @@ export class ProduitSeulComponent {
   retour() {
     this.router.navigate(['/produits']);
   }
+  panier () {
+    this.router.navigate(['/panier']);
+  }
 }
