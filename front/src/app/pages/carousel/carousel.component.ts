@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CarouselComponent implements OnInit, OnDestroy {
   images = [
-  'assets/images/image1.jpg',
-  'assets/images/logo4.jpg',
-  'assets/images/logo3.png'
+  'assets/images/tissu-coton.webp',
+  'assets/images/tissu-jersey.jpg',
+  'assets/images/tissu-matelasse.jpg'
   ];
 
   currentIndex = 0;
