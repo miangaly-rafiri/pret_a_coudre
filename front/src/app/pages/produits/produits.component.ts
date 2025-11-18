@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from "../../shared/navbar/navbar.component";
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produits',
   standalone: true,
-  imports: [FormsModule, CommonModule, NavbarComponent],
+  imports: [FormsModule, CommonModule],
   templateUrl: './produits.component.html',
   styleUrls: ['./produits.component.scss']
 })
