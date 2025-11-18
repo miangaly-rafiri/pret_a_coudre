@@ -5,8 +5,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 40px;
-  align-items: start; 
-  margin-top: 200px;       
+  align-items: start;       
 }
 
 .image-container img {
@@ -76,4 +75,14 @@
   padding-top: 10rem;
   max-width: 100%;
   padding-bottom: 5rem;
+}
+
+.fade {
+  animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
 }

@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.fade {
+  animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
+}
