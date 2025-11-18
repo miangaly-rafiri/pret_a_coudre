@@ -1,28 +1,59 @@
-<div class="filtres">
-  <h2>Filtres</h2>
+<section>
+  <app-navbar></app-navbar>
+</section>
 
-  <label>
-    Catégorie :
-    <select [(ngModel)]="filtreCategorie">
-      <option value="">Toutes</option>
-      <option value="coton">Coton</option>
-      <option value="lin">Lin</option>
-      <option value="soie">Soie</option>
-    </select>
-  </label>
+<!-- FILTRES -->
+<div class="filtres-container">
+  <h2 class="titre">Filtres & Tri</h2>
 
-  <label>
-    Prix max :
-    <input type="number" [(ngModel)]="filtrePrixMax">
-  </label>
+  <div class="filtres">
+    <label>
+      Catégorie :
+      <select [(ngModel)]="filtreCategorie">
+        <option value="">Toutes</option>
+        <option value="coton">Coton</option>
+        <option value="lin">Lin</option>
+        <option value="soie">Soie</option>
+        <option value="velours">Velours</option>
+        <option value="laine">Laine</option>
+      </select>
+    </label>
+
+    <label>
+      Prix max :
+      <input type="number" [(ngModel)]="filtrePrixMax" placeholder="ex : 20">
+    </label>
+
+    <label>
+      Trier par :
+      <select [(ngModel)]="tri">
+        <option value="nom-asc">Nom A → Z</option>
+        <option value="nom-desc">Nom Z → A</option>
+        <option value="prix-asc">Prix croissant</option>
+        <option value="prix-desc">Prix décroissant</option>
+      </select>
+    </label>
+  </div>
 </div>
 
-<hr>
-
+<!-- LISTE PRODUITS -->
 <div class="produits">
-  <h2>Produits</h2>
+  <h2 class="titre">Produits</h2>
 
-  <div *ngFor="let p of produitsFiltres">
-    {{ p.nom }} — {{ p.prix }} €
+  <div class="grid">
+
+    <!-- BLOC PRODUIT -->
+    <div *ngFor="let p of produitsFiltres"
+         class="card"
+         (click)="ouvrirProduit(p.id)">
+      <img [src]="p.image" [alt]="p.nom" class="image">
+
+      <div class="info">
+        <strong class="nom">{{ p.nom }}</strong>
+        <span class="prix">{{ p.prix }} €</span>
+        <span class="cat">{{ p.categorie }}</span>
+      </div>
+    </div>
+
   </div>
 </div>
