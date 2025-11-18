@@ -1,0 +1,15 @@
+:host {
+	display: block;
+}
+
+/* petites personnalisations complémentaires pour la page de connexion */
+.form-card {
+	background: rgba(255, 255, 255, 0.9);
+}
+
+/* réduire la hauteur sur petits écrans si nécessaire */
+@media (max-width: 640px) {
+	:host {
+		padding: 1rem 0;
+	}
+}
