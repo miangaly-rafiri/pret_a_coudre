@@ -25,6 +25,11 @@ export class ProduitsComponent {
     { id: 8, nom: 'Velours léger',       categorie: 'velours', prix: 14, image: 'assets/images/tissu-coton.webp' },
     { id: 9, nom: 'Laine chaude',        categorie: 'laine',   prix: 22, image: 'assets/images/tissu-coton.webp' },
     { id: 10, nom: 'Laine mérinos',      categorie: 'laine',   prix: 30, image: 'assets/images/tissu-coton.webp' },
+    { id: 11, nom: 'Polyester 1',      categorie: 'Polyester 1',   prix: 30, image: 'assets/images/tissu-coton.webp' },
+    { id: 12, nom: 'Polyester 2',      categorie: 'Polyester 2',   prix: 30, image: 'assets/images/tissu-coton.webp' },
+    { id: 13, nom: 'Cuire 1',      categorie: 'cuire 1',   prix: 30, image: 'assets/images/tissu-coton.webp' },
+    { id: 14, nom: 'Cuire 2',      categorie: 'cuire 2',   prix: 30, image: 'assets/images/tissu-coton.webp' },
+
   ];
 
   filtreCategorie: string = '';

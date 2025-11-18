@@ -5,6 +5,9 @@
   align-items: center;           
   background: linear-gradient( 135deg,#FAF3E7, #F3E5D0,#E8D5C4);     
   box-sizing: border-box;
+  padding-top : 10rem;
+  padding-bottom : 5rem;
+
 
   .content {
     max-width: 800px;
@@ -14,7 +17,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     line-height: 1.7;
     color: #333;
-
+    
     h1 {
       text-align: center;
       font-size: 2.5rem;
