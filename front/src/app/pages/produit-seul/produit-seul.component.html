@@ -1,1 +1,27 @@
-<p>produit-seul works!</p>
+<section class="produit-container" *ngIf="produit">
+
+  <!-- IMAGE À GAUCHE -->
+  <div class="image-container">
+    <img [src]="produit.image" [alt]="produit.nom">
+  </div>
+
+  <!-- INFO À DROITE -->
+  <div class="info-container">
+
+    <h1>{{ produit.nom }}</h1>
+    <p class="categorie">Catégorie : <strong>{{ produit.categorie }}</strong></p>
+    <p class="prix">{{ produit.prix }} €</p>
+
+    <p class="desc">
+      Un tissu de grande qualité, idéal pour vos projets couture.
+      (Tu peux changer ce texte ou ajouter une vraie description.)
+    </p>
+
+    <div class="actions">
+      <button class="retour" (click)="retour()">← Retour</button>
+      <button class="panier">Ajouter au panier</button>
+    </div>
+
+  </div>
+
+</section>

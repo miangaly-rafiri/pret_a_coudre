@@ -1,0 +1,72 @@
+.produit-container {
+  max-width: 1200px;        // tu peux augmenter un peu la largeur globale
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr; // image plus large que les infos
+  gap: 40px;
+  align-items: start;        // aligne en haut
+}
+
+.image-container img {
+  width: 100%;       // occupe toute la largeur de la colonne
+  height: auto;      // garde le ratio
+  max-height: 600px; // limite la hauteur pour éviter que ça déborde
+  object-fit: cover; // l'image remplit bien le conteneur si besoin
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.info-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.categorie {
+  font-size: 1rem;
+  color: #7b7b7b;
+}
+
+.prix {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.desc {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.retour {
+  padding: 10px 20px;
+  background: #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+
+  &:hover {
+    background: #b8b8b8;
+  }
+}
+
+.panier {
+  padding: 10px 20px;
+  background: #A6563F;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+
+  &:hover {
+    background: #8c4a36;
+  }
+}
