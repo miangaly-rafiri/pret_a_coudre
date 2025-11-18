@@ -1,1 +1,63 @@
-<p>contact works!</p>
+<div class="page-root">
+    <div class="container">
+        <div class="intro hidden-md">
+            <h2>Contactez Prêt à Coudre</h2>
+            <p>Une question sur une commande ou besoin d'aide pour choisir un tissu ? Écrivez-nous — nous répondrons
+                rapidement.</p>
+            <ul class="info-list">
+                <li><strong>Téléphone :</strong> +33 1 23 45 67 89</li>
+                <li><strong>Email :</strong> contact&#64;pretacoudre.example</li>
+                <li><strong>Horaires :</strong> Lun–Ven 9h–18h</li>
+            </ul>
+        </div>
+
+        <div class="card form-card">
+            <h3>Nous écrire</h3>
+
+            <form (ngSubmit)="onSubmit()" autocomplete="on" class="form">
+                <div class="row">
+                    <label>Nom*</label>
+                    <input type="text" [(ngModel)]="name" name="name" required placeholder="Votre nom" />
+                </div>
+
+                <div class="row">
+                    <label>Email*</label>
+                    <input type="email" [(ngModel)]="email" name="email" required placeholder="votre@exemple.com" />
+
+                </div>
+
+                <div class="row">
+                    <label>Sujet</label>
+                    <input type="text" [(ngModel)]="subject" name="subject" placeholder="Ex : Question sur un tissu" />
+                </div>
+
+                <div class="row">
+                    <label>Message*</label>
+                    <textarea rows="5" [(ngModel)]="message" name="message" required
+                        placeholder="Écrivez votre message..."></textarea>
+                </div>
+
+                <div class="row actions">
+                    <label class="subscribe">
+                        <input type="checkbox" [(ngModel)]="subscribe" name="subscribe" />
+                        S'inscrire à la newsletter
+                    </label>
+
+                    <button type="submit" [disabled]="sending" class="btn-primary">
+                        {{ sending ? 'Envoi en cours...' : 'Envoyer le message' }}
+                    </button>
+                </div>
+
+                <div class="status">
+                    <p class="success" *ngIf="success">{{ success }}</p>
+                    <p class="error" *ngIf="error">{{ error }}</p>
+                </div>
+
+                <div class="socials">
+                    <button type="button" class="btn-outline">Continuer avec Google</button>
+                    <button type="button" class="btn-outline">Continuer avec Facebook</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
