@@ -14,7 +14,7 @@ styleUrls: ['./profil.component.scss']
 export class ProfilComponent implements OnInit {
 
 fullName = '';
-email = '[test@gmail.com](mailto:test@gmail.com)';
+email = 'test@gmail.com';
 showModal = false;
 tempName = '';
 
@@ -27,16 +27,6 @@ this.fullName = storedName;
 } else {
 this.showModal = true;
 }
-}
-
-saveName() {
-if (this.tempName.trim() !== '') {
-this.fullName = this.tempName.trim();
-localStorage.setItem('userFullName', this.fullName);
-} else {
-this.fullName = 'Utilisateur';
-}
-this.showModal = false;
 }
 
 logout() {
