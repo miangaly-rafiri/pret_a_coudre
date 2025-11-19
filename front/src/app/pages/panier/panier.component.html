@@ -1,23 +1,72 @@
-<div class="container">
-  <h1>Mon Panier</h1>
-  <div *ngIf="panier.length > 0; else vide">
-    <div class="produit-panier" *ngFor="let produit of panier; let i = index">
-      <img [src]="produit.image || 'assets/images/default.png'" [alt]="produit.nom">
-      <div class="info">
-        <h2>{{ produit.nom }}</h2>
-        <p>Prix: {{ produit.prix }} €</p>
-        <button (click)="supprimerProduit(i)">Supprimer</button>
-      </div>
-    </div>
+<div
+    class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] min-h-[calc(100vh-64px)] -mt-40 flex items-center justify-center p-6">
 
-    <div class="total-section">
-      <h3>Total : {{ getTotal() }} €</h3>
-      <button (click)="retour()">Continuer mes achats</button>
-    </div>
-  </div>
+    <div class="max-w-4xl w-full grid grid-cols-1 gap-8 items-start">
 
-  <ng-template #vide>
-    <p>Votre panier est vide.</p>
-    <button (click)="retour()">Retour aux produits</button>
-  </ng-template>
+        <!-- Titre -->
+        <div class="text-center md:text-left md:pl-8">
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">Votre Panier</h2>
+            <p class="text-gray-600">
+                Retrouvez ici tous les produits ajoutés. Vous pouvez supprimer un produit ou vider le panier.
+            </p>
+        </div>
+
+        <!-- Card du panier -->
+        <div class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8">
+
+            <!-- Liste des produits -->
+            <div *ngIf="produits.length > 0; else panierVide" class="space-y-6">
+
+                <div *ngFor="let produit of produits"
+                    class="flex flex-col md:flex-row justify-between items-center border-b pb-4 gap-4">
+                    <!-- Image -->
+                    <img [src]="produit.image" alt="{{ produit.nom }}" class="w-24 h-24 object-cover rounded-md">
+
+                    <!-- Info produit -->
+                    <div class="flex-1">
+                        <p class="font-medium text-gray-800">{{ produit.nom }}</p>
+                        <p class="text-gray-500 text-sm capitalize">{{ produit.categorie }}</p>
+                        <p class="text-gray-700 font-semibold mt-1">{{ produit.prix }} € x {{ produit.quantite }} = {{
+                            produit.prix * produit.quantite }} €</p>
+                    </div>
+
+                    <!-- Action -->
+                    <div class="flex gap-2 items-center">
+                        <button (click)="decrement(produit.id)"
+                            class="px-3 py-1 rounded-md border border-red-400 text-red-600 hover:bg-red-50 transition">
+                            -
+                        </button>
+                        <button (click)="supprimer(produit.id)"
+                            class="px-3 py-1 rounded-md border border-red-400 text-red-600 hover:bg-red-50 transition">
+                            Supprimer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-4 border-t mt-4">
+                    <span class="font-bold text-gray-800 text-lg">Total :</span>
+                    <span class="font-bold text-gray-800 text-lg">{{ total() }} €</span>
+                </div>
+
+                <!-- Boutons -->
+                <div class="flex gap-4 mt-4 flex-wrap">
+                    <button (click)="viderPanier()"
+                        class="flex-1 py-2.5 bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition">
+                        Vider le panier
+                    </button>
+                    <button class="flex-1 py-2.5 bg-pink-600 text-white rounded-md shadow hover:bg-pink-700 transition">
+                        Passer à la caisse
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Panier vide -->
+            <ng-template #panierVide>
+                <p class="text-gray-600 text-center py-12">Votre panier est vide.</p>
+            </ng-template>
+
+        </div>
+
+    </div>
 </div>

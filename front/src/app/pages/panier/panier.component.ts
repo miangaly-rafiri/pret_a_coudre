@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PanierService } from '../../services/panier/panier.service';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -9,30 +9,35 @@ import { Router } from '@angular/router';
   templateUrl: './panier.component.html',
   styleUrls: ['./panier.component.scss']
 })
-export class PanierComponent {
+export class PanierComponent implements OnInit {
+  produits: any[] = [];
 
-  panier: any[] = [];
+  constructor(private panierService: PanierService) {}
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    // Récupérer le panier depuis le localStorage
-    const panierStorage = localStorage.getItem('panier');
-    if (panierStorage) {
-      this.panier = JSON.parse(panierStorage);
-    }
+  ngOnInit(): void {
+    this.refreshPanier();
   }
 
-  retour() {
-    this.router.navigate(['/produits']);
+  refreshPanier() {
+    this.produits = this.panierService.getPanier();
   }
 
-  supprimerProduit(index: number) {
-    this.panier.splice(index, 1);
-    localStorage.setItem('panier', JSON.stringify(this.panier));
+  supprimer(id: number) {
+    this.panierService.removeProduit(id);
+    this.refreshPanier(); // rafraîchit la liste
   }
 
-  getTotal() {
-    return this.panier.reduce((acc, p) => acc + p.prix, 0);
+  decrement(id: number) {
+    this.panierService.decrementProduit(id);
+    this.refreshPanier(); // rafraîchit la liste
+  }
+
+  viderPanier() {
+    this.panierService.clearPanier();
+    this.refreshPanier();
+  }
+
+  total() {
+    return this.panierService.getTotal();
   }
 }

@@ -1,64 +1,81 @@
-<div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
-<div class="page-root">
-    <div class="container">
-        <div class="intro hidden-md">
-            <h2>Contactez l'équipe de tissU</h2>
-            <p>Une question sur une commande ou besoin d'aide pour choisir un tissu ? Écrivez-nous — nous répondrons
-                rapidement.</p>
-            <ul class="info-list">
+<div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40 min-h-[calc(100vh-64px)] flex items-center justify-center pt-28 pb-20">
+    <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <!-- Intro texte -->
+        <div class="hidden md:flex flex-col justify-center pl-8">
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">Contactez l'équipe de tissU</h2>
+            <p class="text-gray-600">
+                Une question sur une commande ou besoin d'aide pour choisir un tissu ?  
+                Écrivez-nous — nous répondrons rapidement.
+            </p>
+
+            <ul class="mt-4 text-gray-700 space-y-1">
                 <li><strong>Téléphone :</strong> +33 1 23 45 67 89</li>
-                <li><strong>Email :</strong> contact&#64;teamtissu.com</li>
+                <li><strong>Email :</strong> contact&#64;pretacoudre.example</li>
                 <li><strong>Horaires :</strong> Lun–Ven 9h–18h</li>
             </ul>
         </div>
 
-        <div class="card form-card">
-            <h3>Nous écrire</h3>
+        <!-- Formulaire (même style que login) -->
+        <div class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8">
 
-            <form (ngSubmit)="onSubmit()" autocomplete="on" class="form">
-                <div class="row">
-                    <label>Nom*</label>
-                    <input type="text" [(ngModel)]="name" name="name" required placeholder="Votre nom" />
+            <h3 class="text-2xl font-medium text-gray-800 mb-6">Nous écrire</h3>
+
+            <form (ngSubmit)="onSubmit()" class="space-y-4" autocomplete="on">
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nom*</label>
+                    <input type="text" [(ngModel)]="name" name="name" required
+                           class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm placeholder-gray-400 
+                                  focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-400"
+                           placeholder="Votre nom">
                 </div>
 
-                <div class="row">
-                    <label>Email*</label>
-                    <input type="email" [(ngModel)]="email" name="email" required placeholder="votre@exemple.com" />
-
-                </div>
-                <div class="row">
-                    <label>Sujet</label>
-                    <input type="text" [(ngModel)]="subject" name="subject" placeholder="Ex : Question sur un tissu" />
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email*</label>
+                    <input type="email" [(ngModel)]="email" name="email" required
+                           class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm placeholder-gray-400 
+                                  focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-400"
+                           placeholder="votre@exemple.com">
                 </div>
 
-                <div class="row">
-                    <label>Message*</label>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Sujet</label>
+                    <input type="text" [(ngModel)]="subject" name="subject"
+                           class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm placeholder-gray-400 
+                                  focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-400"
+                           placeholder="Ex : Question sur un tissu">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message*</label>
                     <textarea rows="5" [(ngModel)]="message" name="message" required
-                        placeholder="Écrivez votre message..."></textarea>
+                              class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm placeholder-gray-400 
+                                     focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-400"
+                              placeholder="Écrivez votre message..."></textarea>
                 </div>
 
-                <div class="row actions">
-                    <label class="subscribe">
-                        <input type="checkbox" [(ngModel)]="subscribe" name="subscribe" />
-                        S'inscrire à la newsletter
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center gap-2 text-gray-700">
+                        <input type="checkbox" [(ngModel)]="subscribe" name="subscribe"
+                               class="h-4 w-4 text-pink-600 rounded"/>
+                        <span>S'inscrire à la newsletter</span>
                     </label>
 
-                    <button type="submit" [disabled]="sending" class="btn-primary">
-                        {{ sending ? 'Envoi en cours...' : 'Envoyer le message' }}
+                    <button type="submit"
+                            class="py-2.5 px-4 bg-pink-600 text-white rounded-md shadow hover:bg-pink-700 transition">
+                        Envoyer
                     </button>
                 </div>
-
-                <div class="status">
-                    <p class="success" *ngIf="success">{{ success }}</p>
-                    <p class="error" *ngIf="error">{{ error }}</p>
-                </div>
-
-                <div class="socials">
-                    <button type="button" class="btn-outline">Continuer avec Google</button>
-                    <button type="button" class="btn-outline">Continuer avec Facebook</button>
-                </div>
             </form>
+
+            <div class="mt-6 text-center text-sm text-gray-500">ou</div>
+
+            <div class="mt-4 flex gap-3">
+                <button class="flex-1 py-2 border rounded-md text-sm hover:bg-gray-50">Continuer avec Google</button>
+                <button class="flex-1 py-2 border rounded-md text-sm hover:bg-gray-50">Continuer avec Facebook</button>
+            </div>
+
         </div>
     </div>
-</div>
 </div>

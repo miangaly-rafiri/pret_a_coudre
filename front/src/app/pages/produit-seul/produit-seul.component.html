@@ -1,27 +1,29 @@
-<div  class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
-<section class="produit-container" *ngIf="produit">
+<div class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
+  <section class="produit-container" *ngIf="produit">
 
-  <div class="image-container">
-    <img [src]="produit.image" [alt]="produit.nom">
-  </div>
-
-  <div class="info-container">
-
-    <h1>{{ produit.nom }}</h1>
-    <p class="categorie">Catégorie : <strong>{{ produit.categorie }}</strong></p>
-    <p class="prix">{{ produit.prix }} €</p>
-
-    <p class="desc">
-      Un tissu de grande qualité, idéal pour vos projets couture.
-      (Tu peux changer ce texte ou ajouter une vraie description.)
-    </p>
-
-    <div class="actions">
-      <button class="retour" (click)="retour()">← Retour</button>
-      <button class="panier"(click)="panier()">Ajouter au panier</button>
+    <div class="image-container">
+      <img [src]="produit.image" [alt]="produit.nom">
     </div>
 
-  </div>
+    <div class="info-container">
 
-</section>
+      <h1>{{ produit.nom }}</h1>
+      <p class="categorie">Catégorie : <strong>{{ produit.categorie }}</strong></p>
+      <p class="prix">{{ produit.prix }} €</p>
+
+      <p class="desc">
+        Un tissu de grande qualité, idéal pour vos projets couture.
+        (Tu peux changer ce texte ou ajouter une vraie description.)
+      </p>
+
+      <div class="actions">
+        <button class="retour" (click)="retour()">← Retour</button>
+        <button class="panier" (click)="ajouterAuPanier()">Ajouter au panier</button>
+      </div>
+      <div *ngIf="success" class="fade mb-4 p-3 rounded-md bg-green-100 text-green-700 border border-green-300 mt-4">
+				{{ success }}
+			</div>
+    </div>
+
+  </section>
 </div>

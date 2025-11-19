@@ -3,11 +3,15 @@
   width: full;
   margin: auto;
   overflow: hidden;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  margin-bottom: 2rem;
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.35); // gris/noir transparent
+    backdrop-filter: brightness(0.7); // optionnel : assombrit en douceur
+  }
 
   img {
-    width: 100%;
+    max-width: 100%;
     display: block;
   }
 
@@ -15,7 +19,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     font-size: 2rem;
@@ -23,8 +27,13 @@
     cursor: pointer;
     border-radius: 3px;
 
-    &.prev { left: 10px; }
-    &.next { right: 10px; }
+    &.prev {
+      left: 10px;
+    }
+
+    &.next {
+      right: 10px;
+    }
   }
 
   .dots {
@@ -39,7 +48,7 @@
       margin: 0 4px;
       display: inline-block;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255, 255, 255, 0.5);
       cursor: pointer;
 
       &.active {
