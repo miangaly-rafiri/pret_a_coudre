@@ -2,7 +2,6 @@
   <section class="w-full relative">
     <div class="absolute top-0 left-0 w-full mt-10 flex justify-between items-center px-8 z-20">
 
-      <!-- MENU GAUCHE -->
       <nav class="flex space-x-4">
         <a routerLink="/"
           class="text-black font-bold text-lg px-4 py-2 rounded-full 
@@ -17,7 +16,7 @@
           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
           Produits
         </a>
-        <a routerLink="/tissus"
+        <a routerLink="/categories"
           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
           Tissus
         </a>
@@ -27,10 +26,8 @@
         </a>
       </nav>
 
-      <!-- MENU DROITE -->
       <div class="flex space-x-4">
 
-        <!-- PANIER -->
         <button
           routerLink="/panier"
           class="flex items-center bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
@@ -41,7 +38,6 @@
           Panier
         </button>
 
-        <!-- SI CONNECTÉ -->
         <ng-container *ngIf="auth.isConnected; else loggedOut">
           <button
             routerLink="/profil"

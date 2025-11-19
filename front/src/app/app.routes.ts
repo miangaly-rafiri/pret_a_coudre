@@ -7,6 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProduitSeulComponent } from './pages/produit-seul/produit-seul.component';
 import { AproposComponent } from './pages/apropos/apropos.component';
 import { PanierComponent } from './pages/panier/panier.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 export const routes: Routes = [
      { path: '', component: AccueilComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
      { path: 'produit-seul/:id', component: ProduitSeulComponent },
      { path: 'apropos', component: AproposComponent },
      { path: 'panier', component: PanierComponent },
+     { path: 'categories', component: CategoriesComponent },
 
 
 ];
