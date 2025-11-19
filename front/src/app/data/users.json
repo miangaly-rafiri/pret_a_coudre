@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "fullName": "Mohamad Monif Douri",
+    "email": "monif@example.com",
+    "password": "Azerty123!",
+    "historiqueCommandes": [
+      {
+        "id": 1,
+        "date": "2025-10-10",
+        "produits": [
+          { "id": 1, "nom": "Tissu coton blanc", "categorie": "coton", "prix": 8, "quantite": 2, "image": "assets/images/tissu-coton.webp" },
+          { "id": 3, "nom": "Tissu lin beige", "categorie": "lin", "prix": 12, "quantite": 1, "image": "assets/images/tissu-coton.webp" }
+        ]
+      },
+      {
+        "id": 2,
+        "date": "2025-11-01",
+        "produits": [
+          { "id": 5, "nom": "Tissu soie fine", "categorie": "soie", "prix": 25, "quantite": 1, "image": "assets/images/tissu-coton.webp" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "fullName": "Khadija Douri",
+    "email": "khadija@example.com",
+    "password": "Khadija2024!",
+    "historiqueCommandes": [
+      {
+        "id": 1,
+        "date": "2025-09-20",
+        "produits": [
+          { "id": 2, "nom": "Tissu coton imprimé", "categorie": "coton", "prix": 10, "quantite": 3, "image": "assets/images/tissu-coton.webp" },
+          { "id": 7, "nom": "Velours épais", "categorie": "velours", "prix": 18, "quantite": 1, "image": "assets/images/tissu-coton.webp" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "fullName": "Franck Papillon",
+    "email": "franck.papillon@example.com",
+    "password": "Papillon123!",
+    "historiqueCommandes": [
+      {
+        "id": 1,
+        "date": "2025-08-15",
+        "produits": [
+          { "id": 6, "nom": "Tissu soie royale", "categorie": "soie", "prix": 40, "quantite": 1, "image": "assets/images/tissu-coton.webp" },
+          { "id": 4, "nom": "Tissu lin premium", "categorie": "lin", "prix": 16, "quantite": 2, "image": "assets/images/tissu-coton.webp" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "fullName": "Sarah Karim",
+    "email": "sarah.karim@example.com",
+    "password": "Sarah@2024",
+    "historiqueCommandes": [
+      {
+        "id": 1,
+        "date": "2025-07-30",
+        "produits": [
+          { "id": 8, "nom": "Velours léger", "categorie": "velours", "prix": 14, "quantite": 2, "image": "assets/images/tissu-coton.webp" },
+          { "id": 10, "nom": "Laine mérinos", "categorie": "laine", "prix": 30, "quantite": 1, "image": "assets/images/tissu-coton.webp" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "fullName": "Nadia Benali",
+    "email": "nadia.benali@example.com",
+    "password": "Nadia12345",
+    "historiqueCommandes": [
+      {
+        "id": 1,
+        "date": "2025-11-05",
+        "produits": [
+          { "id": 9, "nom": "Laine chaude", "categorie": "laine", "prix": 22, "quantite": 1, "image": "assets/images/tissu-coton.webp" },
+          { "id": 1, "nom": "Tissu coton blanc", "categorie": "coton", "prix": 8, "quantite": 4, "image": "assets/images/tissu-coton.webp" }
+        ]
+      }
+    ]
+  }
+]

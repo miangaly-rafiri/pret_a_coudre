@@ -1,9 +1,9 @@
-<div
+<!-- <div
     class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] min-h-[calc(100vh-64px)] -mt-40 flex items-center justify-center p-6">
 
     <div class="max-w-5xl w-full space-y-10">
 
-        <!-- Titre -->
+        
         <div class="text-center md:text-left md:pl-8">
             <h2 class="text-3xl font-semibold text-gray-900 mb-4">Paiement</h2>
             <p class="text-gray-600">
@@ -13,7 +13,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-            <!-- Récap commande -->
+        
             <div class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8">
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Récapitulatif</h3>
 
@@ -33,12 +33,11 @@
                 </div>
             </div>
 
-            <!-- Formulaire -->
-            <!-- Formulaire -->
+
             <form [formGroup]="paymentForm"
                 class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8 space-y-6">
 
-                <!-- Adresse -->
+              
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">Adresse de livraison</h3>
 
@@ -63,7 +62,7 @@
                     </div>
                 </div>
 
-                <!-- Paiement -->
+               
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-4">Méthode de paiement</h3>
 
@@ -82,7 +81,7 @@
                     </div>
                 </div>
 
-                <!-- Champs CB -->
+                
                 <div *ngIf="paymentForm.get('paiement')?.value === 'cb'" class="space-y-4 mt-4">
                     <h3 class="text-xl font-semibold text-gray-800">Informations de la carte</h3>
 
@@ -90,10 +89,10 @@
                         class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
 
                     <div class="grid grid-cols-2 gap-4">
-                        <input formControlName="expiration" type="text" placeholder="MM/AA"
+                        <input formControlName="expiration" type="date" placeholder="MM/AA"
                             class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
 
-                        <input formControlName="cvv" type="password" maxlength="4" placeholder="CVV"
+                        <input formControlName="cvv" type="number" maxlength="4" placeholder="CVV"
                             class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
                     </div>
 
@@ -101,7 +100,7 @@
                         class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
                 </div>
 
-                <!-- Bouton payer -->
+                
                 <button (click)="validerPaiement()"
                     class="w-full py-3 bg-pink-600 text-white rounded-md shadow-lg hover:bg-pink-700 transition">
                     Valider le paiement ({{ total }} €)
@@ -121,4 +120,104 @@
         </div>
 
     </div>
+</div> -->
+
+<!-- Titre -->
+<div class="text-center md:text-left md:pl-8">
+    <h2 class="text-3xl font-semibold text-gray-900 mb-4">Paiement</h2>
+    <p class="text-gray-600"> Vérifiez votre commande et renseignez vos informations pour finaliser l’achat. </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8"> <!-- Récap commande -->
+    <div class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Récapitulatif</h3>
+        <div *ngFor="let produit of produits" class="flex justify-between items-center border-b py-3">
+            <div>
+                <p class="font-medium text-gray-800">{{ produit.nom }}</p>
+                <p class="text-gray-500 text-sm">{{ produit.categorie }}</p>
+            </div>
+            <p class="text-gray-700"> {{ produit.prix }} € × {{ produit.quantite }} </p>
+        </div>
+        <div class="flex justify-between items-center pt-4 mt-4 border-t"> <span
+                class="font-bold text-gray-800 text-lg">Total :</span> <span class="font-bold text-gray-800 text-lg">{{
+                total }} €</span> </div>
+    </div> <!-- Formulaire -->
+    <form [formGroup]="paymentForm"
+        class="bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8 space-y-6"> <!-- Adresse -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Adresse de livraison</h3>
+            <div class="space-y-4">
+                <div> <input formControlName="nom" type="text" placeholder="Nom complet"
+                        class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                    <div *ngIf="paymentForm.get('nom')?.invalid && paymentForm.get('nom')?.touched"
+                        class="text-red-600 text-sm mt-1">Le nom est obligatoire</div>
+                </div>
+                <div> <input formControlName="rue" type="text" placeholder="Rue"
+                        class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                    <div *ngIf="paymentForm.get('rue')?.invalid && paymentForm.get('rue')?.touched"
+                        class="text-red-600 text-sm mt-1">La rue est obligatoire</div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div> <input formControlName="ville" type="text" placeholder="Ville"
+                            class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                        <div *ngIf="paymentForm.get('ville')?.invalid && paymentForm.get('ville')?.touched"
+                            class="text-red-600 text-sm mt-1">La ville est obligatoire</div>
+                    </div>
+                    <div> <input formControlName="codePostal" type="text" placeholder="Code postal"
+                            class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                        <div *ngIf="paymentForm.get('codePostal')?.invalid && paymentForm.get('codePostal')?.touched"
+                            class="text-red-600 text-sm mt-1">Code postal invalide (5 chiffres)</div>
+                    </div>
+                </div>
+                <div> <input formControlName="pays" type="text" placeholder="Pays"
+                        class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                    <div *ngIf="paymentForm.get('pays')?.invalid && paymentForm.get('pays')?.touched"
+                        class="text-red-600 text-sm mt-1">Le pays est obligatoire</div>
+                </div>
+            </div>
+        </div> <!-- Paiement -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Méthode de paiement</h3>
+            <div class="space-y-3"> <label
+                    class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50"> <input
+                        type="radio" formControlName="paiement" value="cb" class="w-5 h-5 text-pink-600"> <span
+                        class="font-medium">Carte bancaire</span> </label> <label
+                    class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50"> <input
+                        type="radio" formControlName="paiement" value="paypal" class="w-5 h-5 text-pink-600"> <span
+                        class="font-medium">PayPal</span> </label> </div>
+        </div> <!-- Champs CB -->
+        <div *ngIf="paymentForm.get('paiement')?.value === 'cb'" class="space-y-4 mt-4">
+            <h3 class="text-xl font-semibold text-gray-800">Informations de la carte</h3>
+            <div> <input formControlName="cardNumber" type="text" maxlength="16" placeholder="Numéro de carte"
+                    class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched"
+                    class="text-red-600 text-sm mt-1">Numéro de carte invalide (16 chiffres)</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div> <input formControlName="expiration" type="text" placeholder="MM/AA"
+                        class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                    <div *ngIf="paymentForm.get('expiration')?.invalid && paymentForm.get('expiration')?.touched"
+                        class="text-red-600 text-sm mt-1">Date d'expiration invalide</div>
+                </div>
+                <div> <input formControlName="cvv" type="text" maxlength="3" placeholder="CVV"
+                        class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                    <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched"
+                        class="text-red-600 text-sm mt-1">CVV invalide (3 chiffres)</div>
+                </div>
+            </div>
+            <div> <input formControlName="cardName" type="text" placeholder="Nom sur la carte"
+                    class="w-full p-3 border rounded-md shadow-sm focus:ring-pink-400 focus:border-pink-400">
+                <div *ngIf="paymentForm.get('cardName')?.invalid && paymentForm.get('cardName')?.touched"
+                    class="text-red-600 text-sm mt-1">Le nom sur la carte est obligatoire</div>
+            </div>
+        </div> <!-- Bouton payer --> <button (click)="validerPaiement()"
+            class="w-full py-3 bg-pink-600 text-white rounded-md shadow-lg hover:bg-pink-700 transition"> Valider le
+            paiement ({{ total }} €) </button>
+        <div *ngIf="err" class="fade mb-4 p-3 rounded-md bg-red-100 text-red-700 border border-red-300"> {{ err }}
+        </div>
+        <div *ngIf="success && auth.isConnected"
+            class="fade mb-4 p-3 rounded-md bg-green-100 text-green-700 border border-green-300"> {{
+            success }} </div>
+        <div *ngIf="success"
+            class="fade mb-4 p-3 rounded-md bg-green-100 text-green-700 border border-green-300">Paiement réussi ! Merci pour votre achat, vous allez recovoir unn mail de confirmatoion. </div>
+    </form>
 </div>

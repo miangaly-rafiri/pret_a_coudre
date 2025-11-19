@@ -1,33 +1,64 @@
-<div class="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
-  <div class="max-w-2xl w-full bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-md p-8 relative">
-    <h2 class="text-3xl font-semibold text-gray-900 mb-4">Mon Profil</h2>
-    <p class="text-gray-600 mb-6">Gérez vos informations personnelles et vos préférences.</p>
+<div class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] 
+            -mt-40 min-h-[calc(100vh-64px)] flex items-start justify-center p-8 pt-20">
 
-<div class="space-y-4">
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
-    <div class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm bg-gray-50">{{ fullName }}</div>
-  </div>
+  <div class="max-w-4xl w-full bg-white/80 backdrop-blur-sm border border-gray-100 
+              rounded-xl shadow-lg p-10 space-y-8">
 
-  <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-    <div class="w-full rounded-md border border-gray-200 px-3 py-2 shadow-sm bg-gray-50">{{ email }}</div>
-  </div>
+    <h2 class="text-3xl font-semibold text-gray-900 mb-6 text-center">
+      Mon profil
+    </h2>
 
-  <button (click)="logout()" class="w-full py-2.5 bg-pink-600 text-white rounded-md shadow hover:bg-pink-700 transition mt-4">
-    Se déconnecter
-  </button>
-</div>
+    <!-- Infos utilisateur -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-<!-- Modal prénom -->
-<div *ngIf="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-lg p-6 w-80 relative">
-    <h3 class="text-xl font-semibold mb-3">Bienvenue !</h3>
-    <p class="mb-4 text-gray-700">Quel est votre prénom ?</p>
-    <input [(ngModel)]="tempName" type="text" placeholder="Votre prénom" class="w-full px-3 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-pink-500" />
-  </div>
-</div>
+      <!-- Carte info utilisateur -->
+      <div class="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl shadow-sm p-5">
+        <p class="text-sm text-gray-500 mb-1">Nom complet</p>
+        <p class="text-lg font-semibold text-gray-900">{{ fullName }}</p>
+      </div>
 
+      <div class="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl shadow-sm p-5">
+        <p class="text-sm text-gray-500 mb-1">Email</p>
+        <p class="text-lg font-semibold text-gray-900 break-all">{{ email }}</p>
+      </div>
+
+    </div>
+
+
+    <!-- Historique des commandes -->
+    <div *ngIf="historiqueCommandes.length > 0" class="mt-10">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-4">Historique des commandes</h3>
+
+      <div *ngFor="let commande of historiqueCommandes" class="mb-6 border rounded-lg p-4 bg-white/70 shadow-sm">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-medium text-gray-700">Commande #{{ commande.id }}</span>
+          <span class="text-gray-500 text-sm">{{ commande.date }}</span>
+        </div>
+
+        <div class="space-y-2">
+          <div *ngFor="let produit of commande.produits" class="flex justify-between items-center border-t pt-2">
+            <div class="flex items-center gap-3">
+              <img [src]="produit.image" alt="{{ produit.nom }}" class="w-12 h-12 object-cover rounded">
+              <div>
+                <p class="text-gray-800 font-medium">{{ produit.nom }}</p>
+                <p class="text-gray-500 text-sm">{{ produit.categorie }}</p>
+              </div>
+            </div>
+            <div class="text-gray-700">
+              {{ produit.prix }} € × {{ produit.quantite }}
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end mt-2 pt-2 border-t font-bold text-gray-800">
+          Total: {{ getTotalCommande(commande) }} €
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="historiqueCommandes.length === 0" class="text-gray-500 text-center mt-6">
+      Vous n'avez aucune commande pour le moment.
+    </div>
 
   </div>
 </div>

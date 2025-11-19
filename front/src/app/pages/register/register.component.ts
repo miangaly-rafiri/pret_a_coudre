@@ -23,14 +23,14 @@ export class RegisterComponent {
   constructor(private router: Router, public auth: AuthService) { }
 
   onSubmit() {
-
     const clearMessages = () => {
       setTimeout(() => {
         this.err = '';
         this.success = '';
       }, 1500);
     };
-    if (this.fullName === '' || this.email === '' || this.password === '' || this.confirmPassword === '') {
+
+    if (!this.fullName || !this.email || !this.password || !this.confirmPassword) {
       this.err = 'Veuillez remplir tous les champs';
       clearMessages();
       return;
@@ -42,16 +42,26 @@ export class RegisterComponent {
       return;
     }
 
-    if (this.fullName && this.email && this.password && this.confirmPassword) {
-      this.success = "Inscription réussie ! Redirection en cours...";
+    // ⛔ Vérifier si email déjà utilisé
+    const ok = this.auth.register(this.fullName, this.email, this.password);
+    if (!ok) {
+      this.err = 'Un compte existe déjà avec cet email.';
       clearMessages();
-      setTimeout(() => {
-        this.auth.login();
-        this.router.navigate(['/']);
-      }, 2000);
-
+      return;
     }
 
-    console.log('Nouvel utilisateur', { fullName: this.fullName, email: this.email });
+    // ✔ Succès
+    this.success = "Inscription réussie ! Redirection...";
+    clearMessages();
+
+    setTimeout(() => {
+      this.auth.login(this.email, this.password);
+      this.router.navigate(['/profil']); // redirige vers profil
+    }, 1500);
+
+    console.log('Nouvel utilisateur', {
+      fullName: this.fullName,
+      email: this.email
+    });
   }
 }
