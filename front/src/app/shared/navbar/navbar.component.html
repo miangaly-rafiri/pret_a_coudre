@@ -4,35 +4,28 @@
 
       <!-- MENU GAUCHE -->
       <nav class="flex space-x-4">
-        <a routerLink="/"
-          class="text-black font-bold text-lg px-4 py-2 rounded-full 
-          bg-white/70 border-2 border-pink-500 shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300">
-          Accueil
-        </a>
-        <a routerLink="/apropos"
-          class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
-          A propos
-        </a>
-        <a routerLink="/produits"
-          class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
-          Produits
-        </a>
-        <a routerLink="/tissus"
-          class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
-          Tissus
-        </a>
-        <a routerLink="/contact"
-          class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 hover:bg-white transition shadow-md">
-          Contact
-        </a>
+        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+         bg-white/70 border-2 border-transparent shadow-md 
+         hover:bg-white transition-all duration-200">Accueil</a>
+        <a routerLink="/apropos" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+         bg-white/70 border-2 border-transparent shadow-md 
+         hover:bg-white transition-all duration-200">A propos</a>
+        <a routerLink="/produits" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+         bg-white/70 border-2 border-transparent shadow-md 
+         hover:bg-white transition-all duration-200"> Produits</a>
+        <a routerLink="/tissus" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+         bg-white/70 border-2 border-transparent shadow-md 
+         hover:bg-white transition-all duration-200">Tissus</a>
+        <a routerLink="/contact" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+         bg-white/70 border-2 border-transparent shadow-md 
+         hover:bg-white transition-all duration-200">Contact</a>
       </nav>
 
       <!-- MENU DROITE -->
       <div class="flex space-x-4">
 
         <!-- PANIER -->
-        <button
-          routerLink="/panier"
+        <button routerLink="/panier"
           class="flex items-center bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
           <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,14 +36,12 @@
 
         <!-- SI CONNECTÉ -->
         <ng-container *ngIf="auth.isConnected; else loggedOut">
-          <button
-            routerLink="/profil"
+          <button routerLink="/profil"
             class="bg-white text-pink-500 font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-50 transition">
             Mon compte
           </button>
 
-          <button
-            (click)="logout()"
+          <button (click)="logout()"
             class="bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
             Déconnexion
           </button>
