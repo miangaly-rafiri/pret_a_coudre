@@ -1,0 +1,48 @@
+<div class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
+<div class="categories-container">
+  <h2 class="titre-page">Nos Catégories</h2>
+
+  <div class="grid-categories">
+    <div class="carte-categorie"
+         *ngFor="let categorie of categories"
+         (click)="ouvrirModalCategorie(categorie.nom)">
+      <img [src]="categorie.image" [alt]="categorie.nom">
+      <h3>{{ categorie.nom }}</h3>
+      <p>{{ categorie.description }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="modalVisible" (click)="fermerModal()"></div>
+
+<div class="modal" *ngIf="modalVisible">
+  
+  <div class="modal-header">
+    <h3>Produits : {{ titreCategorie }}</h3>
+    <button class="close-btn" (click)="fermerModal()">✖</button>
+  </div>
+
+  <div class="modal-content">
+
+    <div *ngIf="produitsCategorie.length === 0" class="aucun-produit">
+      Aucun produit trouvé dans cette catégorie.
+    </div>
+
+    <div class="liste-produits">
+      <div class="produit-item"
+           *ngFor="let p of produitsCategorie"
+           (click)="ouvrirProduit(p.id)">
+
+        <img [src]="p.image" [alt]="p.nom">
+        <div class="infos">
+          <h4>{{ p.nom }}</h4>
+          <p class="prix">{{ p.prix }} €</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
