@@ -1,92 +1,163 @@
-<div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
-  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-6 z-10">
-    <img src="assets/images/logo/logoblanc.png" class="scale-[0.65]" alt="logo">
+<div class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-6 z-[999]">
+  <img src="assets/images/logo/logoblanc.png" class="scale-[0.65]" alt="logo">
+</div>
+
+<div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] flex flex-col -mt-40">
+  <app-carousel></app-carousel>
+  <section class="flex flex-col items-center justify-center text-center px-4 mt-8">
+    <h2 class="text-5xl font-extrabold text-[#A6563F] mb-4">
+      Découvrez nos tissus de qualité
+    </h2>
+
+    <div class="marquee-container mt-10" (click)="goToMaterial()">
+ <div class="marquee">
+    <span *ngFor="let mat of noms">
+      {{ mat.name }}
+    </span>
   </div>
+    </div>
 
-  <div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] flex flex-col -mt-40">
-    <app-carousel></app-carousel>
-    <section class="flex flex-col items-center justify-center text-center px-4">
-      <h2 class="text-5xl font-extrabold text-[#A6563F] mb-4">
-        Découvrez nos tissus de qualité
-      </h2>
+  </section>
 
-      <div class="marquee-container" (click)="goToMaterial()">
-        <div class="marquee">
-          <span *ngFor="let mat of materials">
-            {{ mat.name }}
-          </span>
-        </div>
+  <!-- section des nouveautés -->
+  <!-- <section class="px-6 py-20">
+    <h3 class="text-4xl font-bold text-center text-[#A6563F] mb-12">Les nouveautés</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
       </div>
 
-      <p class="text-[#6B4226] mb-8 max-w-xl">
-        Des tissus soigneusement sélectionnés pour vos créations.
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:-rotate-1 transition duration-500">
+        <img src="assets/images/tissu-lin.webp" alt="Tissu 2" class="rounded-xl mb-4 shadow-md">
+        <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en coton</h4>
+        <p class="text-[#333]">Douceur et confort, idéal pour vêtements et accessoires.</p>
+      </div>
+
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-2 transition duration-500">
+        <img src="assets/images/tissu-matelasse.jpg" alt="Tissu 3" class="rounded-xl mb-4 shadow-md">
+        <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en soie</h4>
+        <p class="text-[#333]">Luxueux et élégant, pour des créations raffinées.</p>
+      </div>
+
+    </div>
+  </section>
+   -->
+  <section class="w-full py-20 bg-gradient-to-br from-[#F7EEDB] via-[#E5D3B3] to-[#A67858]">
+  <!-- Titre de la section -->
+  <h3 class="text-4xl font-extrabold text-center text-[#A6563F] mb-12 relative before:absolute before:left-1/2 before:top-full before:-translate-x-1/2 before:h-1 before:w-24 before:bg-pink-500 before:rounded-full">
+    Les nouveautés
+  </h3>
+
+  <!-- Grille simple responsive -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
+    <!-- Carte 1 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-2xl transform transition hover:scale-105 hover:-translate-y-2 animate-fadeInUp">
+      <img src="assets/images/coton/tissu-coton.webp" class="w-full h-64 md:h-80 object-cover" alt="Tissu en lin">
+      <div class="absolute bottom-4 left-4 bg-black/50 px-4 py-2 rounded text-white">
+        <h4 class="text-2xl font-bold">Tissu en lin</h4>
+      </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-2xl transform transition hover:scale-105 hover:-translate-y-2 animate-fadeInUp delay-150">
+      <img src="assets/images/lin/tissu-lin.webp" class="w-full h-64 md:h-80 object-cover" alt="Tissu en coton">
+      <div class="absolute bottom-4 left-4 bg-black/50 px-4 py-2 rounded text-white">
+        <h4 class="text-2xl font-bold">Tissu en coton</h4>
+      </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="relative overflow-hidden rounded-2xl shadow-2xl transform transition hover:scale-105 hover:-translate-y-2 animate-fadeInUp delay-300">
+      <img src="assets/images/velours/velours-bleu.webp" class="w-full h-64 md:h-80 object-cover" alt="Velours">
+      <div class="absolute bottom-4 left-4 bg-black/50 px-4 py-2 rounded text-white">
+        <h4 class="text-2xl font-bold">Tissu en velours</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- <p class="shrikhand text-[#6B4226] text-center mx-auto mb-12 max-w-3xl 
+           text-xl md:text-2xl font-extrabold ">    
+  Explorez une gamme pensée pour inspirer votre créativité sans limites avec nos catégories.
+</p> -->
+
+
+<!-- 
+  <section class="px-6 py-20 bg-gradient-to-br from-[#F7EEDB] via-[#E5D3B3] to-[#A67858]">
+    <h3 class="text-4xl font-bold text-center text-[#A6563F] mb-12">Nos catégories</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-1 transition duration-500">
+        <img src="assets/images/tissu-jersey.jpg" alt="Tissu 1" class="rounded-xl mb-4 shadow-md">
+        <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en lin</h4>
+        <p class="text-[#333]">Un tissu naturel et léger parfait pour vos créations estivales.</p>
+      </div>
+
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:-rotate-1 transition duration-500">
+        <img src="assets/images/tissu-matelasse.jpg" alt="Tissu 2" class="rounded-xl mb-4 shadow-md">
+        <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en coton</h4>
+        <p class="text-[#333]">Douceur et confort, idéal pour vêtements et accessoires.</p>
+      </div>
+
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-2 transition duration-500">
+        <img src="assets/images/tissu-coton.webp" alt="Tissu 3" class="rounded-xl mb-4 shadow-md">
+        <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en soie</h4>
+        <p class="text-[#333]">Luxueux et élégant, pour des créations raffinées.</p>
+      </div>
+
+    </div>
+  </section> -->
+
+<section class="w-full py-20 bg-gradient-to-br from-[#F7EEDB] via-[#E5D3B3] to-[#A67858]">
+
+  <!-- Titre -->
+  <h3 class="text-4xl font-extrabold text-center text-[#A6563F] mb-16">
+    Nos catégories
+  </h3>
+
+  <!-- Grid des catégories -->
+  <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4 md:px-8">
+
+    <!-- Catégorie 1 -->
+    <div class="bg-white rounded-2xl shadow-xl p-6 transition duration-500 transform hover:-translate-y-3 hover:shadow-2xl">
+      <img src="assets/images/tissu-jersey.jpg"
+           class="w-full h-60 object-cover rounded-xl mb-4"
+           alt="Tissu en jersey">
+
+      <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en Jersey</h4>
+      <p class="text-[#333]">
+        Extensible et confortable, idéal pour t-shirts, robes et vêtements du quotidien.
       </p>
-      <button
-        class="bg-[#E8B89C] hover:bg-[#A6563F] text-white font-bold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        Voir nos tissus
-      </button>
-    </section>
+    </div>
 
-    <section class="px-6 py-20">
-      <h3 class="text-4xl font-bold text-center text-[#A6563F] mb-12">Les nouveautés</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <!-- Catégorie 2 -->
+    <div class="bg-white rounded-2xl shadow-xl p-6 transition duration-500 transform hover:-translate-y-3 hover:shadow-2xl">
+      <img src="assets/images/tissu-matelasse.jpg"
+           class="w-full h-60 object-cover rounded-xl mb-4"
+           alt="Tissu matelassé">
 
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-1 transition duration-500">
-          <img src="assets/images/tissu-coton.webp" alt="Tissu 1" class="rounded-xl mb-4 shadow-md w-50">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en lin</h4>
-          <p class="text-[#333]">Un tissu naturel et léger parfait pour vos créations estivales.</p>
-        </div>
+      <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu Matelassé</h4>
+      <p class="text-[#333]">
+        Parfait pour accessoires, vestes et créations chaleureuses au toucher moelleux.
+      </p>
+    </div>
 
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:-rotate-1 transition duration-500">
-          <img src="assets/images/tissu-lin.webp" alt="Tissu 2" class="rounded-xl mb-4 shadow-md">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en coton</h4>
-          <p class="text-[#333]">Douceur et confort, idéal pour vêtements et accessoires.</p>
-        </div>
+    <!-- Catégorie 3 -->
+    <div class="bg-white rounded-2xl shadow-xl p-6 transition duration-500 transform hover:-translate-y-3 hover:shadow-2xl">
+      <img src="assets/images/coton/coton-violet.jpg"
+           class="w-full h-60 object-cover rounded-xl mb-4"
+           alt="Tissu coton">
 
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-2 transition duration-500">
-          <img src="assets/images/tissu-matelasse.jpg" alt="Tissu 3" class="rounded-xl mb-4 shadow-md">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en soie</h4>
-          <p class="text-[#333]">Luxueux et élégant, pour des créations raffinées.</p>
-        </div>
+      <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en Coton</h4>
+      <p class="text-[#333]">
+        Doux, respirant et polyvalent : un indispensable pour toutes vos créations.
+      </p>
+    </div>
 
-      </div>
-    </section>
-    <p class="text-[#6B4226] text-center mb-8 max-w-xl">
-      Des tissus soigneusement sélectionnés pour vos créations.
-      Des tissus soigneusement sélectionnés pour vos créations.
-      Des tissus soigneusement sélectionnés pour vos créations.
-      Des tissus soigneusement sélectionnés pour vos créations.
-      Des tissus soigneusement sélectionnés pour vos créations.
-      Des tissus soigneusement sélectionnés pour vos créations.
-    </p>
-    <section class="px-6 py-20">
-      <h3 class="text-4xl font-bold text-center text-[#A6563F] mb-12">Nos catégories</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-1 transition duration-500">
-          <img src="assets/images/tissu-jersey.jpg" alt="Tissu 1" class="rounded-xl mb-4 shadow-md">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en lin</h4>
-          <p class="text-[#333]">Un tissu naturel et léger parfait pour vos créations estivales.</p>
-        </div>
-
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:-rotate-1 transition duration-500">
-          <img src="assets/images/tissu-matelasse.jpg" alt="Tissu 2" class="rounded-xl mb-4 shadow-md">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en coton</h4>
-          <p class="text-[#333]">Douceur et confort, idéal pour vêtements et accessoires.</p>
-        </div>
-
-        <div
-          class="bg-white rounded-2xl shadow-2xl p-6 transform hover:-translate-y-4 hover:rotate-2 transition duration-500">
-          <img src="assets/images/tissu-coton.webp" alt="Tissu 3" class="rounded-xl mb-4 shadow-md">
-          <h4 class="text-2xl font-semibold text-[#6B4226] mb-2">Tissu en soie</h4>
-          <p class="text-[#333]">Luxueux et élégant, pour des créations raffinées.</p>
-        </div>
-
-      </div>
-    </section>
   </div>
+</section>
+</div>
