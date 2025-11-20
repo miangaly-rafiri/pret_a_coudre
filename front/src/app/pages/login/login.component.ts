@@ -12,12 +12,10 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
   email = '';
   password = '';
   remember = false;
-
-  emailtest = 'test@gmail.com';
-  passwordtest = 'Test1234';
 
   err = '';
   success = '';
@@ -25,12 +23,13 @@ export class LoginComponent {
   constructor(private router: Router, public auth: AuthService) { }
 
   onSubmit() {
+
     const clearMessages = () => {
-    setTimeout(() => {
-      this.err = '';
-      this.success = '';
-    }, 1500);
-  };
+      setTimeout(() => {
+        this.err = '';
+        this.success = '';
+      }, 1500);
+    };
 
     if (!this.email || !this.password) {
       this.err = 'Veuillez remplir tous les champs.';
@@ -38,24 +37,25 @@ export class LoginComponent {
       return;
     }
 
-    if (this.email !== this.emailtest || this.password !== this.passwordtest) {
+    // 🔥 Tentative de connexion avec AuthService
+    const ok = this.auth.login(this.email, this.password);
+
+    if (!ok) {
       this.err = 'Email ou mot de passe incorrect.';
       clearMessages();
       return;
     }
 
-    if (this.email === this.emailtest && this.password === this.passwordtest) {
-      this.success = "Connexion réussie ! Redirection en cours...";
-      this.auth.login();
-      clearMessages();
-      setTimeout(() => {
-        this.router.navigate(['/']);
-      }, 2000);
-    }
+    // ✔ Connexion réussie
+    this.success = "Connexion réussie ! Redirection...";
+    clearMessages();
+
+    setTimeout(() => {
+      this.router.navigate(['/profil']);
+    }, 1500);
 
     console.log('Tentative de connexion', {
       email: this.email,
-      password: this.password,
       remember: this.remember
     });
   }
