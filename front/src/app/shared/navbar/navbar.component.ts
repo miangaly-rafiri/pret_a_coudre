@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class NavbarComponent {
 mobileMenuOpen = false;
 
-constructor(public auth: AuthService) {}
+constructor(public auth: AuthService , private router: Router) {}
 
 toggleMobileMenu() {
   this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -20,5 +20,6 @@ toggleMobileMenu() {
 
   logout() {
     this.auth.logout();
+    this.router.navigate(['/']);
   }
 }

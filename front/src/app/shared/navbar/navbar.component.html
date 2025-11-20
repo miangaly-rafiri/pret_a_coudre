@@ -1,12 +1,12 @@
+
 <div class="flex pb-40">
   <section class="w-full relative">
     <div class="absolute top-0 left-0 w-full mt-10 flex justify-between items-center px-8 z-20">
-
       <nav class="flex space-x-4">
         <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
          bg-white/70 border-2 border-transparent shadow-md 
          hover:bg-white transition-all duration-200">Accueil</a>
-        <a routerLink="/apropos" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
+        <a routerLink="/apropos" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
          bg-white/70 border-2 border-transparent shadow-md 
          hover:bg-white transition-all duration-200">A propos</a>
         <a routerLink="/produits" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
