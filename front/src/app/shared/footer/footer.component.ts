@@ -1,16 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-footer',
-//   imports: [],
-//   templateUrl: './footer.component.html',
-//   styleUrl: './footer.component.scss'
-// })
-// export class FooterComponent {
-
-// }
-
-
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 

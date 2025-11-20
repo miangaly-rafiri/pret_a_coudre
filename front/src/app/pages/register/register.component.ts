@@ -42,7 +42,6 @@ export class RegisterComponent {
       return;
     }
 
-    // ⛔ Vérifier si email déjà utilisé
     const ok = this.auth.register(this.fullName, this.email, this.password);
     if (!ok) {
       this.err = 'Un compte existe déjà avec cet email.';
@@ -50,13 +49,12 @@ export class RegisterComponent {
       return;
     }
 
-    // ✔ Succès
     this.success = "Inscription réussie ! Redirection...";
     clearMessages();
 
     setTimeout(() => {
       this.auth.login(this.email, this.password);
-      this.router.navigate(['/profil']); // redirige vers profil
+      this.router.navigate(['/profil']);
     }, 1500);
 
     console.log('Nouvel utilisateur', {

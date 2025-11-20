@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-accueil',
-  standalone: true,           
-  imports: [CarouselComponent, CommonModule],  
+  standalone: true,
+  imports: [CarouselComponent, CommonModule],
   templateUrl: './accueil.component.html',
-  styleUrls:['./accueil.component.scss']
+  styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent {
- materials = [
+  materials = [
     { name: 'Coton', id: 1 },
     { name: 'Lin', id: 2 },
     { name: 'Soie', id: 3 },
@@ -26,7 +26,7 @@ export class AccueilComponent {
     { name: 'Polyester', id: 5 }
   ];
 
-   currentIndex = 0;
+  currentIndex = 0;
 
   constructor(private router: Router) {
     this.startRotation();
@@ -38,8 +38,8 @@ export class AccueilComponent {
     }, 10000);
   }
 
- goToMaterial() {
-  this.router.navigate(['/tissus']);
-}
+  goToMaterial() {
+    this.router.navigate(['/tissus']);
+  }
 
 }

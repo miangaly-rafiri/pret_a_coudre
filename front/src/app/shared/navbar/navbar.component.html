@@ -1,4 +1,3 @@
-
 <div class="flex pb-40">
   <section class="w-full relative">
     <div class="absolute top-0 left-0 w-full mt-10 flex justify-between items-center px-8 z-20">
@@ -22,7 +21,6 @@
 
       <div class="flex space-x-4">
 
-        <!-- PANIER -->
         <button routerLink="/panier"
           class="flex items-center bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
           <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,17 +33,14 @@
         <ng-container *ngIf="auth.isConnected; else loggedOut">
           <button routerLink="/profil"
             class="bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
-              <img src="assets/images/user-profile.png" alt="Mon compte" class="w-5 h-5">
-            <!-- Mon compte -->
+            <img src="assets/images/user-profile.png" alt="Mon compte" class="w-5 h-5">
           </button>
 
-          <button (click)="logout()"
-            class="bg-pink-200 px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
-              <img src="assets/images/power-off.png" alt="déconnexion" class="w-7 h-7">
+          <button (click)="logout()" class="bg-pink-200 px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
+            <img src="assets/images/power-off.png" alt="déconnexion" class="w-7 h-7">
           </button>
         </ng-container>
 
-        <!-- SI NON CONNECTÉ -->
         <ng-template #loggedOut>
           <button routerLink="/login"
             class="bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">

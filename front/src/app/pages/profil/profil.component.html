@@ -8,10 +8,8 @@
       Mon profil
     </h2>
 
-    <!-- Infos utilisateur -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <!-- Carte info utilisateur -->
       <div class="bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl shadow-sm p-5">
         <p class="text-sm text-gray-500 mb-1">Nom complet</p>
         <p class="text-lg font-semibold text-gray-900">{{ fullName }}</p>
@@ -25,7 +23,6 @@
     </div>
 
 
-    <!-- Historique des commandes -->
     <div *ngIf="historiqueCommandes.length > 0" class="mt-10">
       <h3 class="text-2xl font-semibold text-gray-800 mb-4">Historique des commandes</h3>
 

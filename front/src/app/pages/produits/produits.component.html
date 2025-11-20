@@ -1,58 +1,56 @@
 <div class="bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
   <div class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-6 z-10">
-  <img src="assets/images/logo/logonoire.png" class="scale-[0.65]" alt="logo">
-</div>
-<div class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
-<div class="filtres-container mt-3">
-  <h2 class="titre">Filtres & Tri</h2>
-
-  <div class="filtres">
-    <label>
-      Catégorie :
-      <select [(ngModel)]="filtreCategorie">
-        <option value="">Toutes</option>
-        <option value="coton">Coton</option>
-        <option value="lin">Lin</option>
-        <option value="soie">Soie</option>
-        <option value="velours">Velours</option>
-        <option value="laine">Laine</option>
-      </select>
-    </label>
-
-    <label>
-      Prix max :
-      <input type="number" [(ngModel)]="filtrePrixMax" placeholder="ex : 20">
-    </label>
-
-    <label>
-      Trier par :
-      <select [(ngModel)]="tri">
-        <option value="nom-asc">Nom A → Z</option>
-        <option value="nom-desc">Nom Z → A</option>
-        <option value="prix-asc">Prix croissant</option>
-        <option value="prix-desc">Prix décroissant</option>
-      </select>
-    </label>
+    <img src="assets/images/logo/logonoire.png" class="scale-[0.65]" alt="logo">
   </div>
-</div>
+  <div class="container bg-gradient-to-br from-[#FAF3E7] via-[#F3E5D0] to-[#E8D5C4] -mt-40">
+    <div class="filtres-container mt-3">
+      <h2 class="titre">Filtres & Tri</h2>
 
-<div class="produits">
-  <h2 class="titre">Produits</h2>
+      <div class="filtres">
+        <label>
+          Catégorie :
+          <select [(ngModel)]="filtreCategorie">
+            <option value="">Toutes</option>
+            <option value="coton">Coton</option>
+            <option value="lin">Lin</option>
+            <option value="soie">Soie</option>
+            <option value="velours">Velours</option>
+            <option value="laine">Laine</option>
+          </select>
+        </label>
 
-  <div class="grid">
+        <label>
+          Prix max :
+          <input type="number" [(ngModel)]="filtrePrixMax" placeholder="ex : 20">
+        </label>
 
-    <div *ngFor="let p of produitsFiltres"
-         class="card"
-         (click)="ouvrirProduit(p.id)">
-      <img [src]="p.image" [alt]="p.nom" class="image">
-
-      <div class="info">
-        <strong class="nom">{{ p.nom }}</strong>
-        <span class="prix">{{ p.prix }} €</span>
-        <span class="cat">{{ p.categorie }}</span>
+        <label>
+          Trier par :
+          <select [(ngModel)]="tri">
+            <option value="nom-asc">Nom A → Z</option>
+            <option value="nom-desc">Nom Z → A</option>
+            <option value="prix-asc">Prix croissant</option>
+            <option value="prix-desc">Prix décroissant</option>
+          </select>
+        </label>
       </div>
     </div>
 
+    <div class="produits">
+      <h2 class="titre">Produits</h2>
+
+      <div class="grid">
+
+        <div *ngFor="let p of produitsFiltres" class="card" (click)="ouvrirProduit(p.id)">
+          <img [src]="p.image" [alt]="p.nom" class="image">
+
+          <div class="info">
+            <strong class="nom">{{ p.nom }}</strong>
+            <span class="prix">{{ p.prix }} €</span>
+            <span class="cat">{{ p.categorie }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-</div>
-</div>

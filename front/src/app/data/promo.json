@@ -1,0 +1,22 @@
+[
+  {
+    "code": "WELCOME10",
+    "discountType": "percent",
+    "value": 10
+  },
+  {
+    "code": "FREESHIP",
+    "discountType": "shipping",
+    "value": 5
+  },
+  {
+    "code": "SUPER20",
+    "discountType": "percent",
+    "value": 20
+  },
+  {
+    "code": "MINUS5",
+    "discountType": "fixed",
+    "value": 5
+  }
+]

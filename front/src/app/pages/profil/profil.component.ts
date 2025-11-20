@@ -18,7 +18,7 @@ export class ProfilComponent implements OnInit {
   email = '';
   historiqueCommandes: any[] = [];
 
-  constructor(private router: Router, public auth: AuthService) {}
+  constructor(private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
     if (!this.auth.isConnected) {

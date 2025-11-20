@@ -10,13 +10,13 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-mobileMenuOpen = false;
+  mobileMenuOpen = false;
 
-constructor(public auth: AuthService , private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) { }
 
-toggleMobileMenu() {
-  this.mobileMenuOpen = !this.mobileMenuOpen;
-}
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
 
   logout() {
     this.auth.logout();

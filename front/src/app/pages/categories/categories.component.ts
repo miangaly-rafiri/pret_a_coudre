@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CategoriesComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   categories = [
     { nom: 'coton', image: 'assets/images/tissu-coton.webp', description: 'Tissus doux et légers.' },
     { nom: 'lin', image: 'assets/images/logo4.jpg', description: 'Fibres naturelles respirantes.' },
