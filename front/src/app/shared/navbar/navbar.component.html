@@ -1,59 +1,97 @@
-
 <div class="flex pb-40">
   <section class="w-full relative">
+
     <div class="absolute top-0 left-0 w-full mt-10 flex justify-between items-center px-8 z-20">
-      <nav class="flex space-x-4">
-        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
-         bg-white/70 border-2 border-transparent shadow-md 
-         hover:bg-white transition-all duration-200">Accueil</a>
-        <a routerLink="/apropos" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
-         bg-white/70 border-2 border-transparent shadow-md 
-         hover:bg-white transition-all duration-200">A propos</a>
-        <a routerLink="/produits" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
-         bg-white/70 border-2 border-transparent shadow-md 
-         hover:bg-white transition-all duration-200"> Produits</a>
-        <a routerLink="/categories" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
-         bg-white/70 border-2 border-transparent shadow-md 
-         hover:bg-white transition-all duration-200">Tissus</a>
-        <a routerLink="/contact" routerLinkActive="active-link" class="text-black font-bold text-lg px-4 py-2 rounded-full 
-         bg-white/70 border-2 border-transparent shadow-md 
-         hover:bg-white transition-all duration-200">Contact</a>
+
+      <!-- NAVIGATION DESKTOP -->
+      <nav class="hidden md:flex space-x-4">
+        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 border-2 border-transparent shadow-md hover:bg-white transition-all duration-200">
+          Accueil
+        </a>
+        <a routerLink="/apropos" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 border-2 border-transparent shadow-md hover:bg-white transition-all duration-200">
+          A propos
+        </a>
+        <a routerLink="/produits" routerLinkActive="active-link"
+           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 border-2 border-transparent shadow-md hover:bg-white transition-all duration-200">
+          Produits
+        </a>
+        <a routerLink="/categories" routerLinkActive="active-link"
+           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 border-2 border-transparent shadow-md hover:bg-white transition-all duration-200">
+          Tissus
+        </a>
+        <a routerLink="/contact" routerLinkActive="active-link"
+           class="text-black font-bold text-lg px-4 py-2 rounded-full bg-white/70 border-2 border-transparent shadow-md hover:bg-white transition-all duration-200">
+          Contact
+        </a>
       </nav>
 
-      <div class="flex space-x-4">
-
-        <!-- PANIER -->
+      <!-- BOUTONS DROITE DESKTOP -->
+      <div class="hidden md:flex space-x-4">
         <button routerLink="/panier"
-          class="flex items-center bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
+                class="flex items-center bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
           <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h12l-2-9M17 13l2 9M9 21a1 1 0 11-2 0 1 1 0 012 0zm10 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h12l-2-9M17 13l2 9M9 21a1 1 0 11-2 0 1 1 0 012 0zm10 0a1 1 0 11-2 0 1 1 0 012 0z" />
           </svg>
           Panier
         </button>
 
         <ng-container *ngIf="auth.isConnected; else loggedOut">
           <button routerLink="/profil"
-            class="bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
-              <img src="assets/images/user-profile.png" alt="Mon compte" class="w-5 h-5">
-            <!-- Mon compte -->
+                  class="bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
+            <img src="assets/images/user-profile.png" alt="Mon compte" class="w-5 h-5">
           </button>
-
           <button (click)="logout()"
-            class="bg-pink-200 px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
-              <img src="assets/images/power-off.png" alt="déconnexion" class="w-7 h-7">
+                  class="bg-pink-200 px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
+            <img src="assets/images/power-off.png" alt="déconnexion" class="w-7 h-7">
           </button>
         </ng-container>
 
-        <!-- SI NON CONNECTÉ -->
         <ng-template #loggedOut>
           <button routerLink="/login"
-            class="bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
+                  class="bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">
             Connexion
           </button>
         </ng-template>
-
       </div>
+
+      <!-- HAMBURGER MOBILE -->
+      <div class="md:hidden">
+        <button (click)="toggleMobileMenu()" class="text-black focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
     </div>
+
+<div *ngIf="mobileMenuOpen" class="absolute top-full left-0 w-full md:hidden bg-white/80 shadow-lg rounded-b-md py-4 z-50">
+  <div class="flex justify-end mb-2 px-4">
+    <button (click)="mobileMenuOpen = false" class="text-black text-2xl font-bold focus:outline-none">&times;</button>
+  </div>
+
+  <div class="flex flex-col space-y-2 px-4">
+    <a routerLink="/" class="block font-bold text-black px-4 py-2 rounded-full bg-white/70 shadow-md hover:bg-white transition-all duration-200">Accueil</a>
+    <a routerLink="/apropos" class="block font-bold text-black px-4 py-2 rounded-full bg-white/70 shadow-md hover:bg-white transition-all duration-200">A propos</a>
+    <a routerLink="/produits" class="block font-bold text-black px-4 py-2 rounded-full bg-white/70 shadow-md hover:bg-white transition-all duration-200">Produits</a>
+    <a routerLink="/categories" class="block font-bold text-black px-4 py-2 rounded-full bg-white/70 shadow-md hover:bg-white transition-all duration-200">Tissus</a>
+    <a routerLink="/contact" class="block font-bold text-black px-4 py-2 rounded-full bg-white/70 shadow-md hover:bg-white transition-all duration-200">Contact</a>
+  </div>
+
+  <div class="flex flex-col space-y-2 mt-4 px-4">
+    <button routerLink="/panier" class="bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">Panier</button>
+    <ng-container *ngIf="auth.isConnected; else loggedOutMobile">
+      <button routerLink="/profil" class="bg-pink-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">Mon compte</button>
+      <button (click)="logout()" class="bg-pink-200 px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">Déconnexion</button>
+    </ng-container>
+    <ng-template #loggedOutMobile>
+      <button routerLink="/login" class="bg-pink-500 text-white font-bold px-4 py-2 rounded-full shadow-lg hover:bg-pink-600 transition">Connexion</button>
+    </ng-template>
+  </div>
+</div>
   </section>
 </div>

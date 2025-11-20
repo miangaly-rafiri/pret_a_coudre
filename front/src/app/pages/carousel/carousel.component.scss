@@ -15,6 +15,40 @@
     display: block;
   }
 
+.animate-letter {
+  display: inline-block;
+  animation: fadeInLetter 0.5s forwards;
+}
+
+
+.animate-letter {
+  display: inline-block;
+  animation: fadeInLetter 0.5s forwards;
+}
+
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+
+.animate-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInLetter 0.5s forwards;
+}
+
+
+
   button {
     position: absolute;
     top: 50%;

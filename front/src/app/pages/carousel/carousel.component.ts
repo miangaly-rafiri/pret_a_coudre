@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
+
+
 export class CarouselComponent implements OnInit, OnDestroy {
   images = [
   'assets/images/carousel/tissucomplet.jpg',
