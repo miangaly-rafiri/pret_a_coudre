@@ -36,21 +36,35 @@
       </div>
     </div>
 
-    <div class="produits">
-      <h2 class="titre">Produits</h2>
+<div class="produits">
+  <h2 class="titre">Produits</h2>
 
-      <div class="grid">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div *ngFor="let p of produitsFiltres" 
+         class="produit-card p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-xl transition"
+         (click)="ouvrirProduit(p.id)">
 
-        <div *ngFor="let p of produitsFiltres" class="card" (click)="ouvrirProduit(p.id)">
-          <img [src]="p.image" [alt]="p.nom" class="image">
+      <!-- Image du produit -->
+      <img [src]="p.image" [alt]="p.nom" class="w-full h-48 object-cover rounded-md mb-3">
 
-          <div class="info">
-            <strong class="nom">{{ p.nom }}</strong>
-            <span class="prix">{{ p.prix }} €</span>
-            <span class="cat">{{ p.categorie }}</span>
-          </div>
-        </div>
+      <!-- Nom et catégorie / prix -->
+      <h3 class="text-lg font-semibold mb-1">{{ p.nom }}</h3>
+      <p class="text-sm text-gray-600 mb-2">{{ p.categorie }} - {{ p.prix }} €</p>
 
+      <!-- Étoiles de notation -->
+      <div class="flex mb-2">
+        <ng-container *ngFor="let star of [1,2,3,4,5]">
+          <span *ngIf="star <= p.note" class="text-yellow-400">★</span>
+          <span *ngIf="star > p.note" class="text-gray-300">★</span>
+        </ng-container>
       </div>
+
+      <!-- Carré de couleur -->
+      <div class="w-6 h-6 rounded-sm border mt-1" [style.backgroundColor]="p.couleur"></div>
+
     </div>
+  </div>
+</div>
+
+
   </div>
